@@ -1,6 +1,6 @@
 # Ensemble Averaging in Simultaneous and Sequential Lineups
 
-👁️ How does the **way information is presented** (i.e., all at once vs. one at a time) affect our ability to form mental summaries and make accurate decisions?  
+**How does the **way information is presented** (i.e., all at once vs. one at a time) affect our ability to form mental summaries and make accurate decisions?**  
 This project investigates that question in the context of police lineups using the concept of **ensemble perception**, which is the ability to extract summary information from a group of similar items.
 
 ---
