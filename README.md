@@ -1,75 +1,79 @@
 # Ensemble Averaging in Simultaneous and Sequential Lineups
 
-**How does the **way information is presented** (i.e., all at once vs. one at a time) affect our ability to form mental summaries and make accurate decisions?**  
-This project investigates that question in the context of police lineups using the concept of **ensemble perception**, which is the ability to extract summary information from a group of similar items.
+**Does the presentation format of a police lineup (sequentially vs simultaneously) influence how people extract shared information and make recognition decisions?**  
+This project investigates how *ensemble perception* impacts eyewitness discriminability based on lineup presentation formats, drawing on cognitive modeling and signal detection theory.
 
 ---
 
-## 🎯 Project Summary
+## 🎯 Project Overview
 
-This research explored how **presentation format (simultaneous vs. sequential)** influences the formation of **ensemble face representations** and the resulting **discriminability** in an eyewitness identification task.
+In eyewitness research, **simultaneous lineups** (where all faces are viewed at once) often yield better identification accuracy than **sequential lineups** (one face at a time). This project tests a core assumption of the **Ensemble Model**—that simultaneous presentation enhances the precision of *ensemble representations* (i.e., an average face formed from multiple similar ones), which in turn supports better memory discrimination.
 
-Across four experiments, participants studied a group of six faces presented either **all at once (simultaneously)** or **one at a time (sequentially)**. Later, they were tested on their ability to distinguish an **ensemble morph** (average of studied faces) from a **new morph** (average of unseen faces). 
-
-✅ We found that participants were **significantly better at identifying the correct morph** when faces were presented **simultaneously**, suggesting a more precise ensemble representation under that format.
+We examined whether the ability to distinguish an "old" (studied) average face from a "new" (unstudied) one is better when study faces are encoded simultaneously versus sequentially.
 
 ---
 
-## 🧠 UX Implications
+## 🧪 Experiments & R Code
 
-As a UX researcher-in-training, I approach experimental psychology as a foundation for studying:
-- **Information architecture**: How the arrangement of elements impacts memory, attention, and choice  
-- **Cognitive load**: The hidden costs of sequential vs. parallel information processing  
-- **Perceptual grouping**: How users form mental summaries or patterns from UI components
+Across **four experiments**, participants studied sets of six faces either:
+- **Simultaneously** (all at once)
+- **Sequentially** (one at a time)
 
-This project directly informs UX domains like:
-- **Dashboards**: Should we show multiple data streams together or one at a time?
-- **Visual search tasks**: Do users perform better when all options are visible?
-- **Memory-based decisions**: When is working memory overloaded by presentation design?
+Then they were asked to discriminate between an *ensemble morph* created from the studied faces and a morph created from similar but unstudied faces.
+
+- **Experiment 1**: Original In-person Study 
+- **Experiment 2**: Online Study 
+- **Experiment 3a**: In-person Replication 1
+- **Experiment 3b**: In-person Replication 2
+- **Internal Meta Analysis**
+
+### 🔍 Analysis Method
+- Calculation of **Hit Rates**, **False Alarm Rates**, and **Adjusted Discirminability**
+- Calculation of **Cohen's d**, **t-value**, and **p-value** comparing across conditions (Null Hypothesis Significance Testing)
+
+Scripts:
 
 ---
 
-## 🧪 Experimental Details
+## 📈 Impact Statement
 
-- **Independent Variable**: Presentation format (simultaneous vs. sequential)
-- **Dependent Variable**: Discriminability between studied ensemble morph vs. new morph
-- **Design**: Between- and within-subjects (depending on experiment)
-- **Analyses**: Signal Detection Theory, ROC, t-tests across conditions
+Our ability to summarize information quickly is a core feature of visual cognition. When systems present information sequentially rather than simultaneously, they place a burden on working memory, impairing our ability to detect meaningful patterns.
 
-🧬 Scripts included:
-- `Exp1.Rmd`
-- `Exp2.Rmd`
-- `Exp3a.Rmd`
-- `Exp3b.Rmd`
+These findings inform real-world design problems in **interface layouts**, **visual recognition systems**, and **AI-supported identification tools**, particularly in high-stakes settings like legal decision-making, security screening, or medical diagnostics.
 
 ---
 
 ## 💡 Key Findings
 
-- Simultaneous face presentation resulted in **higher ensemble sensitivity**.
-- Sequential face presentation disrupted ensemble encoding, likely due to **working memory limitations**.
-- These results support the **Ensemble model** of lineup perception, which predicts that diagnostic features are easier to detect when a more accurate ensemble is formed.
+- **Simultaneous presentation** improves ensemble morph discriminability.
+- **Sequential presentation** degrades ensemble quality—likely due to working memory load and lack of parallel comparison.
+- The ensemble representation acts as a *summary signal*, and its precision depends critically on how the visual input is encoded.
+
+These findings provide **experimental support for the Ensemble Model**, advancing our understanding of collective memory signals in decision-making.
 
 ---
 
-## 🔍 Theoretical Insight
+## 🚀 UX Implication
 
-This project supports the **diagnostic feature-detection theory**, where users judge unfamiliar items by comparing them to a mental average. In lineups, this ensemble average is **better formed when all items are seen together**, enabling higher decision accuracy.
+This project intersects directly with core UX research principles around **information architecture** and **visual cognition**. Specifically, it addresses:
 
----
+- How **presentation format** impacts memory, attention, and choice
+- The tradeoffs between **serial vs. parallel processing** in visual workflows
+- Strategies for minimizing **cognitive load** during perceptual decision-making
 
-## ✨ Impact Statement
-
-Our ability to summarize information quickly is a core feature of visual cognition. When systems present information **sequentially** rather than **simultaneously**, they place a burden on working memory, impairing our ability to detect meaningful patterns.  
-
-This has direct implications for **UX design**, especially in tasks where **recognition**, **comparison**, and **pattern detection** are critical.
+For UX researchers and designers, it offers cognitive grounding for **why grouping similar elements** together may enhance perception, while separating them temporally may introduce noise.
 
 ---
 
-## 🚀 UX-Relevant Takeaways
+## 🧩 Theoretical Implication
 
-- Simultaneous layouts improve pattern perception and reduce memory burden  
-- Sequential layouts require users to reconstruct context, increasing cognitive effort  
-- When designing interfaces involving **multiple similar elements**, consider showing them **side-by-side** to enhance ensemble encoding
+Simultaneous formats promote better *ensemble averaging*, which enhances discriminability by highlighting **diagnostic facial features**.  
+Sequential formats interfere with this process, possibly due to:
+- Increased working memory burden
+- Interruptions in comparison processes
+- Decreased salience of shared traits across items
+
+These results support a core assumption of **diagnostic feature detection theory** and reinforce ensemble perception as a **mechanism of attention guidance** in memory-based decisions.
 
 ---
+
