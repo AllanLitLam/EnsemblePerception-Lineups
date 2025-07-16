@@ -29,7 +29,7 @@ Then they were asked to discriminate between an *ensemble morph* created from th
 
 ### 🔍 Analysis Method
 - Calculation of **Hit Rates**, **False Alarm Rates**, and **Adjusted Discirminability**
-- Calculation of **Cohen's d**, **t-value**, and **p-value** comparing across conditions (Null Hypothesis Significance Testing)
+- Calculation of **Cohen's d**, ***t*-value**, and ***p*-value** comparing across conditions (Null Hypothesis Significance Testing)
 
 Scripts:
 
