@@ -168,7 +168,7 @@ compute_dprime <- function(hit, fa, label) {
 data <- read_csv("Exp1.csv")
 
 # Run the analysis
-result_exp1 <- analyze_ensemble_lineup(data)
-write.csv(result_exp1, "Exp1_Result.csv", row.names = FALSE)
+results_exp1 <- analyze_ensemble_lineup(data)
+write.csv(results_exp1, "Exp1_Results.csv", row.names = FALSE)
 ```
 
