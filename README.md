@@ -31,8 +31,12 @@ Then they were asked to discriminate between an *ensemble morph* created from th
 - Calculation of **Hit Rates**, **False Alarm Rates**, and **Adjusted Discirminability**
 - Calculation of **Cohen's d**, ***t*-value**, and ***p*-value** comparing across conditions (Null Hypothesis Significance Testing)
 
-Scripts:
-
+Analysis Scripts:
+- `Exp1_NHST.Rmd`
+- `Exp2_NHST.Rmd`
+- `Exp3a_NHST.Rmd`
+- `Exp3b_NHST.Rmd`
+- `Internal Meta Analysis_NHST.Rmd`
 ---
 
 ## 📈 Impact Statement
