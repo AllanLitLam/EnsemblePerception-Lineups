@@ -1,11 +1,12 @@
 # Ensemble Averaging in Simultaneous and Sequential Lineups
 
 **Does the presentation format of a police lineup (sequentially vs simultaneously) influence how people extract shared information and make recognition decisions?**  
+
 This project investigates how *ensemble perception* impacts eyewitness discriminability based on lineup presentation formats, drawing on cognitive modeling and signal detection theory.
 
 ---
 
-## 🎯 Project Overview
+## Project Overview
 
 In eyewitness research, **simultaneous lineups** (where all faces are viewed at once) often yield better identification accuracy than **sequential lineups** (one face at a time). This project tests a core assumption of the **Ensemble Model**—that simultaneous presentation enhances the precision of *ensemble representations* (i.e., an average face formed from multiple similar ones), which in turn supports better memory discrimination.
 
@@ -13,7 +14,7 @@ We examined whether the ability to distinguish an "old" (studied) average face f
 
 ---
 
-## 🧪 Experiments & R Code
+## Experiments & R Code
 
 Across **four experiments**, participants studied sets of six faces either:
 - **Simultaneously** (all at once)
@@ -27,7 +28,7 @@ Then they were asked to discriminate between an *ensemble morph* created from th
 - **Experiment 3b**: In-person Replication 2
 - **Internal Meta Analysis**
 
-### 🔍 Analysis Method
+### Analysis Method
 - Calculation of **Hit Rates**, **False Alarm Rates**, and **Adjusted Discirminability**
 - Calculation of **Cohen's d**, ***t*-value**, and ***p*-value** comparing across conditions (Null Hypothesis Significance Testing)
 
@@ -39,7 +40,7 @@ Analysis Scripts:
 - `Internal Meta Analysis_NHST.Rmd`
 ---
 
-## 📈 Impact Statement
+## Impact Statement
 
 Our ability to summarize information quickly is a core feature of visual cognition. When systems present information sequentially rather than simultaneously, they place a burden on working memory, impairing our ability to detect meaningful patterns.
 
@@ -47,7 +48,7 @@ These findings inform real-world design problems in **interface layouts**, **vis
 
 ---
 
-## 💡 Key Findings
+## Key Findings
 
 - **Simultaneous presentation** improves ensemble morph discriminability.
 - **Sequential presentation** degrades ensemble quality—likely due to working memory load and lack of parallel comparison.
@@ -57,7 +58,7 @@ These findings provide **experimental support for the Ensemble Model**, advancin
 
 ---
 
-## 🚀 UX Implication
+## UX Implication
 
 This project intersects directly with core UX research principles around **information architecture** and **visual cognition**. Specifically, it addresses:
 
@@ -69,7 +70,7 @@ For UX researchers and designers, it offers cognitive grounding for **why groupi
 
 ---
 
-## 🧩 Theoretical Implication
+## Theoretical Implication
 
 Simultaneous formats promote better *ensemble averaging*, which enhances discriminability by highlighting **diagnostic facial features**.  
 Sequential formats interfere with this process, possibly due to:
