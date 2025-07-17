@@ -1,7 +1,7 @@
-"StimulusType","Mean_Sequential","Mean_Simultaneous","SD_Sequential","SD_Simultaneous","N_Sequential","N_Simultaneous","Cohens_d","t_value","p_value","df"
-"Matching Member",0.71,0.73,0.23,0.22,123,128,0.09,0.74,0.46,248
-"Matching Morph",0.44,0.42,0.3,0.28,123,128,-0.06,-0.47,0.64,245
-"Non-Matching Member",0.18,0.13,0.22,0.21,123,128,-0.23,-1.78,0.076,247
-"Non-Matching Morph",0.18,0.12,0.23,0.19,123,128,-0.28,-2.18,0.03,236
-"d' Member",1.26,1.42,0.77,0.71,123,128,0.21,1.68,0.093,246
-"d' Morph",0.62,0.7,0.71,0.74,123,128,0.12,0.91,0.36,249
+StimulusType,Mean_Sequential,Mean_Simultaneous,SD_Sequential,SD_Simultaneous,N_Sequential,N_Simultaneous,Cohens_d,t_value,p_value,,,,
+Matching Member,0.71,0.73,0.23,0.22,123,128,0.09,0.74,0.46,,,,
+Matching Morph,0.44,0.42,0.3,0.28,123,128,-0.06,-0.47,0.64,,,,
+Non-Matching Member,0.18,0.13,0.22,0.21,123,128,-0.23,-1.78,0.076,,,,
+Non-Matching Morph,0.18,0.12,0.23,0.19,123,128,-0.28,-2.18,0.03,,,,
+d' Member,1.26,1.42,0.77,0.71,123,128,0.21,1.68,0.093,,,, 
+d' Morph,0.62,0.7,0.71,0.74,123,128,0.12,0.91,0.36,,,,

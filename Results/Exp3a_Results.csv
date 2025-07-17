@@ -1,0 +1,7 @@
+StimulusType,Mean_Sequential,Mean_Simultaneous,SD_Sequential,SD_Simultaneous,N_Sequential,N_Simultaneous,Cohens_d,t_value,p_value
+Matching Member,0.8,0.71,0.18,0.27,68,68,-0.4,-2.32,0.022
+Matching Morph,0.37,0.54,0.26,0.31,68,68,0.59,3.42,0.00083
+Non-Matching Member,0.1,0.11,0.16,0.2,68,68,0.08,0.48,0.63
+Non-Matching Morph,0.07,0.12,0.13,0.19,68,68,0.32,1.85,0.067
+d' Member,1.68,1.42,0.55,0.76,68,68,-0.4,-2.34,0.021
+d' Morph,0.7,0.99,0.69,0.8,68,68,0.38,2.24,0.027
