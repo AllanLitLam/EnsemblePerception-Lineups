@@ -1,0 +1,174 @@
+---
+title: "Allan Lam"
+subtitle: "Exp1"
+date: "`r Sys.time()`"
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
+biblio-style: apalike
+urlcolor: blue
+editor_options: 
+  markdown: 
+    wrap: sentence
+---
+
+```{r}
+# Load Required Libraries
+library(tidyverse)  # Includes dplyr, ggplot2, tidyr, readr, etc.
+library(knitr) # for table formatting
+
+setwd("~/Desktop/Allan/A.Projects/KD/KD2023")
+```
+
+
+```{r}
+# Function: analyze_ensemble_lineup
+# Purpose:  Analyze lineup identification data by computing:
+#           1) Mean & SD of ID rates
+#           2) NHST (Welch's t-test & Cohen's d) between conditions
+#           3) Adjusted d' using z(Hit) - z(FA) with log-linear correction
+# Input:    data — DataFrame with columns:
+#                 Condition, ParticipantsID, Matching Member, Non-matching Member,
+#                 Matching Morph, Non-matching Morph
+#           n_trials — Number of trials (8)
+# Output:   Formatted summary table of ID rates and d′ comparisons
+
+analyze_ensemble_lineup <- function(data, n_trials = 4) {
+
+  # 1. Mean and SD for each face type × Condition
+  summary_stats <- data %>%
+    pivot_longer(cols = 3:6, names_to = "StimulusType", values_to = "IDRate") %>%
+    group_by(Condition, StimulusType) %>%
+    summarise(
+      Mean = mean(IDRate, na.rm = TRUE) %>% round(2),
+      SD = sd(IDRate, na.rm = TRUE) %>% round(2),
+      N = n(),
+      .groups = "drop"
+    )
+
+  # 2. NHST comparisons for ID rate by face type (Simultaneous vs Sequential)
+  stats_test <- function(face_type) {
+    sim <- data %>% filter(Condition == "Simultaneous") %>% pull(face_type)
+    seq <- data %>% filter(Condition == "Sequential") %>% pull(face_type)
+
+    t_res <- t.test(sim, seq)
+
+    pooled_sd <- sqrt(((length(sim) - 1) * var(sim) + (length(seq) - 1) * var(seq)) /
+                        (length(sim) + length(seq) - 2))
+    d_val <- (mean(sim) - mean(seq)) / pooled_sd
+
+    tibble(
+      StimulusType = face_type,
+      Cohens_d = round(d_val, 2),
+      t_value = round(t_res$statistic, 2),
+      p_value = signif(t_res$p.value, 2),
+      df = round(t_res$parameter, 0)
+    )
+  }
+
+  face_types <- colnames(data)[3:6]
+  test_results <- map_dfr(face_types, stats_test)
+
+  # 3. Compute d' for members and morphs (adjusted)
+  compute_dprime <- function(hit, fa, label) {
+    adjust <- function(x) ifelse(x == 1, (n_trials - 0.5) / n_trials,
+                                 ifelse(x == 0, 0.5 / n_trials, x))
+    
+    adj_hit <- adjust(hit)
+    adj_fa  <- adjust(fa)
+
+    z_hit <- qnorm(adj_hit)
+    z_fa  <- qnorm(adj_fa)
+
+    dprime <- z_hit - z_fa
+
+    tibble(
+      Condition = data$Condition,
+      ParticipantsID = data$ParticipantsID,
+      d_prime = dprime,
+      StimulusType = label
+    )
+  }
+
+  d_member <- compute_dprime(data$`Matching Member`, data$`Non-Matching Member`, "d' Member")
+  d_morph  <- compute_dprime(data$`Matching Morph`,  data$`Non-Matching Morph`,  "d' Morph")
+  d_all <- bind_rows(d_member, d_morph)
+
+  # 4. Summarize d' by Condition and Type
+  d_summary <- d_all %>%
+    group_by(Condition, StimulusType) %>%
+    summarise(
+      Mean = mean(d_prime, na.rm = TRUE)%>% round(2),
+      SD = sd(d_prime, na.rm = TRUE)%>% round(2),
+      N = n(),
+      .groups = "drop"
+    )
+
+  # 5. NHST test on d' values (Sim vs Seq) by type
+  d_ttests <- d_all %>%
+    group_by(StimulusType) %>%
+    summarise(
+      sim = list(d_prime[Condition == "Simultaneous"]),
+      seq = list(d_prime[Condition == "Sequential"]),
+      .groups = "drop"
+    ) %>%
+    rowwise() %>%
+    mutate(
+      t_res = list(t.test(unlist(sim), unlist(seq))),
+      Cohens_d = round((mean(unlist(sim)) - mean(unlist(seq))) /
+                         sqrt(((length(unlist(sim)) - 1) * var(unlist(sim)) +
+                                 (length(unlist(seq)) - 1) * var(unlist(seq))) /
+                                (length(unlist(sim)) + length(unlist(seq)) - 2)), 2),
+      t_value = round(t_res$statistic, 2),
+      p_value = signif(t_res$p.value, 2),
+      df = round(t_res$parameter, 0)
+    ) %>%
+    select(StimulusType, Cohens_d, t_value, p_value, df)
+
+  # 6. Combine summary tables
+  table1 <- summary_stats %>%
+    pivot_wider(names_from = Condition, values_from = c(Mean, SD, N)) %>%
+    left_join(test_results, by = "StimulusType")
+
+  table2 <- d_summary %>%
+    pivot_wider(names_from = Condition, values_from = c(Mean, SD, N)) %>%
+    left_join(d_ttests, by = "StimulusType")
+
+  final_table <- bind_rows(table1, table2)
+
+  # 7. Return final table
+  print(kable(final_table, digits = 2, caption = "Ensemble Lineup Summary Table"))
+  return(final_table)
+}
+
+compute_dprime <- function(hit, fa, label) {
+    adjust <- function(x) ifelse(x == 1, (n_trials - 0.5) / n_trials,
+                                 ifelse(x == 0, 0.5 / n_trials, x))
+    
+    adj_hit <- adjust(hit)
+    adj_fa  <- adjust(fa)
+
+    z_hit <- qnorm(adj_hit)
+    z_fa  <- qnorm(adj_fa)
+
+    dprime <- z_hit - z_fa
+
+    tibble(
+      Condition = data$Condition,
+      ParticipantsID = data$ParticipantsID,
+      d_prime = dprime,
+      StimulusType = label
+    )
+  }
+```
+
+```{r}
+# Load CSV data
+data <- read_csv("Exp1.csv")
+
+# Run the analysis
+result_exp1 <- analyze_ensemble_lineup(data)
+write.csv(result_exp1, "Exp1_Result.csv", row.names = FALSE)
+```
+
