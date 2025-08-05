@@ -10,7 +10,7 @@ This project investigates how *ensemble perception* impacts eyewitness discrimin
 
 In eyewitness research, **simultaneous lineups** (where all faces are viewed at once) often yield better identification accuracy than **sequential lineups** (one face at a time). This project tests a core assumption of the **Ensemble Model**—that simultaneous presentation enhances the precision of *ensemble representations* (i.e., an average face formed from multiple similar ones), which in turn supports better memory discrimination.
 
-We examined whether the ability to distinguish an "old" (studied) average face from a "new" (unstudied) one is better when study faces are encoded simultaneously versus sequentially.
+I examined whether the ability to distinguish an "old" (studied) average face from a "new" (unstudied) one is better when study faces are encoded simultaneously versus sequentially.
 
 ---
 
