@@ -33,11 +33,11 @@ Then they were asked to discriminate between an *ensemble morph* created from th
 - Calculation of **Cohen's d**, ***t*-value**, and ***p*-value** comparing across conditions (Null Hypothesis Significance Testing)
 
 Analysis Scripts:
-- `Exp1_NHST.Rmd`
-- `Exp2_NHST.Rmd`
-- `Exp3a_NHST.Rmd`
-- `Exp3b_NHST.Rmd`
-- `Internal Meta Analysis_NHST.Rmd`
+- [Exp1_NHST.Rmd](./Analysis/Exp1_NHST.Rmd)
+- [Exp2_NHST.Rmd](./Analysis/Exp2_NHST.Rmd)
+- [Exp3a_NHST.Rmd](./Analysis/Exp3a_NHST.Rmd)
+- [Exp3b_NHST.Rmd](./Analysis/Exp3b_NHST.Rmd)
+- [Internal_Meta_Analysis_NHST.Rmd](./Analysis/Internal_Meta_Analysis_NHST.Rmd)
 ---
 
 ## Impact Statement
