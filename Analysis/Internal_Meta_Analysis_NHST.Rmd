@@ -1,6 +1,6 @@
 ---
 title: "Allan Lam"
-subtitle: "Internal Meta Analysis."
+subtitle: "Internal_Meta_Analysis."
 date: "`r Sys.time()`"
 output:
   pdf_document: default
